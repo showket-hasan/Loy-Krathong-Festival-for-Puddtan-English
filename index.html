@@ -1,0 +1,2034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="artifact-type" content="narrative">
+  <meta name="design-style" content="nocturne">
+  <title>Loy Krathong: Festival of Lights on the Water — Grade 5 Bilingual Explorer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+
+      /* Page and surfaces: Deep midnight river night */
+      --background: #081020;
+      --surface-container-low: #0d172c;
+      --surface-container: #12203b;
+      --surface-container-high: #192b4e;
+
+      /* Text */
+      --on-surface: #f4efe4;
+      --on-surface-variant: #b4c2db;
+
+      /* Borders */
+      --outline: #3f5885;
+      --outline-variant: #223559;
+
+      /* Accents: Lotus Gold, Lantern Amber, Sacred River Blue, Fresh Banana Green */
+      --primary: #eab34b;
+      --on-primary: #081020;
+      --primary-container: #2e2514;
+      --on-primary-container: #fde7b5;
+      --secondary: #7187ad;
+      --tertiary: #7cc4e8;
+      --lantern-amber: #f5983b;
+      --banana-green: #6ad48a;
+      --banana-deep: #244a34;
+      --lotus-rose: #e88ca5;
+      --error: #f27474;
+      --on-error: #1f0808;
+
+      /* Semantic tokens */
+      --positive: #6ad48a;
+      --warning: #f5983b;
+      --focus: #eab34b;
+
+      /* Data series */
+      --data-1: #eab34b;
+      --data-2: #7cc4e8;
+      --data-3: #6ad48a;
+      --data-4: #f5983b;
+      --data-context: #4a5f87;
+
+      /* Fonts: Clean Times New Roman throughout with Noto Serif Thai for Thai script */
+      --font-headline: 'Times New Roman', 'Noto Serif Thai', Times, serif;
+      --font-body: 'Times New Roman', 'Noto Serif Thai', Times, serif;
+      --font-label: 'Times New Roman', 'Noto Serif Thai', Times, serif;
+
+      /* Shape */
+      --rounded: 0.35rem;
+      --rounded-lg: 0.625rem;
+      --rounded-full: 9999px;
+
+      /* Effects */
+      --hairline: 1px solid var(--outline-variant);
+      --hairline-strong: 1px solid var(--outline);
+      --panel-highlight: inset 0 1px 0 rgba(244, 239, 228, 0.06);
+      --brass-glow: radial-gradient(circle at 86% 14%, rgba(234, 179, 75, 0.14), transparent 48%),
+                    radial-gradient(circle at 14% 82%, rgba(106, 212, 138, 0.08), transparent 45%);
+      --water-wash: linear-gradient(180deg, rgba(124, 196, 232, 0.07) 0%, rgba(8, 16, 32, 0.92) 100%);
+      --sky-tint: color-mix(in srgb, var(--tertiary) 12%, transparent);
+      --brass-tint: color-mix(in srgb, var(--primary) 14%, transparent);
+      --green-tint: color-mix(in srgb, var(--banana-green) 14%, transparent);
+      --amber-tint: color-mix(in srgb, var(--lantern-amber) 14%, transparent);
+      --error-tint: color-mix(in srgb, var(--error) 14%, transparent);
+      --heading-tracking: -0.01em;
+      --label-tracking: 0.07em;
+
+      /* Type scale (Narrative) */
+      --display-size: clamp(2.35rem, 1.45rem + 3.4vw, 4.1rem);
+      --headline-size: clamp(1.65rem, 1.2rem + 1.6vw, 2.35rem);
+      --subhead-size: clamp(1.18rem, 1.04rem + 0.5vw, 1.42rem);
+      --body-size: clamp(1.0625rem, 1rem + 0.22vw, 1.15rem);
+      --label-size: clamp(0.8rem, 0.75rem + 0.15vw, 0.875rem);
+
+      /* Spacing scale (4pt base) */
+      --space-xs: 0.25rem;
+      --space-sm: 0.5rem;
+      --space-md: 1rem;
+      --space-lg: 1.5rem;
+      --space-xl: 2.5rem;
+      --space-2xl: 4rem;
+      --space-3xl: 5.5rem;
+
+      /* Motion */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --dur-micro: 120ms;
+      --dur-short: 240ms;
+      --dur-long: 480ms;
+    }
+
+    /* Base reset */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      overflow-x: clip;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background);
+      color: var(--on-surface);
+      font-family: var(--font-body);
+      font-size: var(--body-size);
+      line-height: 1.62;
+      scroll-behavior: smooth;
+    }
+    header { position: static !important; }
+
+    button, input, select, textarea {
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
+
+    .page-grid {
+      display: grid;
+      gap: var(--space-2xl);
+      padding: var(--space-lg);
+      max-width: 1120px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .page-grid * { min-width: 0; }
+
+    /* Hero Header */
+    .hero-header {
+      background-color: var(--background);
+      background-image: var(--brass-glow);
+      border-bottom: var(--hairline);
+      padding: var(--space-2xl) var(--space-lg) var(--space-xl);
+    }
+    .hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.9fr);
+      gap: var(--space-xl);
+      align-items: center;
+    }
+    .coord-label {
+      font-family: var(--font-label);
+      font-size: var(--label-size);
+      letter-spacing: var(--label-tracking);
+      text-transform: uppercase;
+      color: var(--tertiary);
+      display: inline-block;
+    }
+    .hero-title {
+      font-family: var(--font-headline);
+      font-size: var(--display-size);
+      font-weight: 400;
+      letter-spacing: var(--heading-tracking);
+      line-height: 1.08;
+      margin: var(--space-sm) 0 var(--space-xs);
+      color: var(--on-surface);
+    }
+    .hero-title em {
+      color: var(--primary);
+      font-style: italic;
+    }
+    .thai-subtitle {
+      font-size: var(--subhead-size);
+      color: var(--primary);
+      margin: 0 0 var(--space-md);
+      font-weight: 500;
+    }
+    .hero-lede {
+      color: var(--on-surface-variant);
+      max-width: 60ch;
+      margin: 0 0 var(--space-lg);
+    }
+    .hero-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+    }
+    .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
+      border-radius: var(--rounded);
+      border: var(--hairline-strong);
+      background: var(--surface-container-low);
+      color: var(--on-surface);
+      text-decoration: none;
+      font-size: var(--label-size);
+      letter-spacing: 0.03em;
+      transition: background-color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out);
+    }
+    .nav-pill:hover {
+      background: var(--surface-container-high);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    .hero-visual-card {
+      background: var(--surface-container);
+      border: var(--hairline);
+      box-shadow: var(--panel-highlight);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      text-align: left;
+    }
+    .progress-summary {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--space-md);
+      margin-top: var(--space-md);
+      padding-top: var(--space-md);
+      border-top: var(--hairline);
+    }
+    .stat-mini-label {
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      text-transform: uppercase;
+      letter-spacing: var(--label-tracking);
+    }
+    .stat-mini-value {
+      font-size: var(--subhead-size);
+      color: var(--primary);
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Section & Typography Structure */
+    .story-section {
+      display: grid;
+      gap: var(--space-lg);
+    }
+    .section-head {
+      border-top: 2px solid var(--primary);
+      padding-top: var(--space-md);
+      border-bottom: var(--hairline);
+      padding-bottom: var(--space-sm);
+    }
+    .section-title {
+      font-family: var(--font-headline);
+      font-size: var(--headline-size);
+      font-weight: 400;
+      letter-spacing: var(--heading-tracking);
+      line-height: 1.15;
+      margin: var(--space-xs) 0 0;
+      color: var(--on-surface);
+    }
+    .section-title em {
+      color: var(--primary);
+      font-style: italic;
+    }
+    .prose-col {
+      max-width: 68ch;
+      margin: 0;
+      color: var(--on-surface);
+    }
+    .prose-muted {
+      max-width: 68ch;
+      margin: 0;
+      color: var(--on-surface-variant);
+    }
+
+    /* Panels & Cards */
+    .panel {
+      background: var(--surface-container);
+      border: var(--hairline);
+      box-shadow: var(--panel-highlight);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+    }
+    .panel-low {
+      background: var(--surface-container-low);
+      border: var(--hairline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+    }
+    .observation-well {
+      background: var(--background);
+      border: var(--hairline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+      gap: var(--space-lg);
+    }
+
+    .two-col-split {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: var(--space-lg);
+      align-items: start;
+    }
+
+    /* Bilingual Callout Strip */
+    .vocab-callout {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: var(--space-sm);
+      background: var(--brass-tint);
+      border: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
+      border-radius: var(--rounded);
+      padding: var(--space-xs) var(--space-sm);
+      margin: var(--space-xs) 0;
+    }
+    .vocab-thai {
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .vocab-phonetic {
+      color: var(--tertiary);
+      font-style: italic;
+      font-size: 0.95em;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--sky-tint);
+      color: var(--tertiary);
+      border: 1px solid color-mix(in srgb, var(--tertiary) 35%, transparent);
+      border-radius: var(--rounded);
+      padding: var(--space-xs) var(--space-sm);
+      font-size: var(--label-size);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .badge-green {
+      background: var(--green-tint);
+      color: var(--banana-green);
+      border-color: color-mix(in srgb, var(--banana-green) 35%, transparent);
+    }
+    .badge-amber {
+      background: var(--amber-tint);
+      color: var(--lantern-amber);
+      border-color: color-mix(in srgb, var(--lantern-amber) 35%, transparent);
+    }
+    .badge-brass {
+      background: var(--brass-tint);
+      color: var(--primary);
+      border-color: color-mix(in srgb, var(--primary) 35%, transparent);
+    }
+
+    /* Buttons */
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      align-items: center;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: var(--space-sm) var(--space-md);
+      border-radius: var(--rounded);
+      cursor: pointer;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      border: var(--hairline-strong);
+      background: transparent;
+      color: var(--on-surface);
+      transition: background-color var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out), color var(--dur-short) var(--ease-out);
+    }
+    .btn:hover:not(:disabled) {
+      background: var(--surface-container-high);
+      border-color: var(--primary);
+    }
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: var(--on-primary);
+      border-color: var(--primary);
+    }
+    .btn-primary:hover:not(:disabled) {
+      background: var(--lantern-amber);
+      border-color: var(--lantern-amber);
+      color: var(--on-primary);
+    }
+    .btn-active,
+    .btn[aria-pressed="true"] {
+      background: var(--primary-container);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* History Legend vs Fact Interactive Toggle */
+    .history-toggle-box {
+      display: grid;
+      gap: var(--space-md);
+    }
+    .fact-legend-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .sub-card {
+      background: var(--surface-container-low);
+      border: var(--hairline);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+    }
+    .sub-card h3, .panel h3, .panel-low h3 {
+      margin: 0 0 var(--space-sm);
+      font-size: var(--subhead-size);
+      font-weight: 400;
+      color: var(--primary);
+    }
+
+    /* Interactive Krathong Anatomy */
+    .anatomy-container {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+      gap: var(--space-xl);
+      align-items: center;
+    }
+    .anatomy-svg-wrap {
+      background: var(--background);
+      border: var(--hairline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md);
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .anatomy-hotspot {
+      cursor: pointer;
+      transition: opacity var(--dur-short) var(--ease-out);
+    }
+    .anatomy-hotspot:hover {
+      opacity: 0.85;
+    }
+    .part-btn-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+    .part-detail-card {
+      background: var(--surface-container-low);
+      border-left: 3px solid var(--primary);
+      border-radius: var(--rounded);
+      padding: var(--space-md) var(--space-lg);
+    }
+
+    /* Tables */
+    .table-scroll {
+      overflow-x: auto;
+      border: var(--hairline);
+      border-radius: var(--rounded-lg);
+      background: var(--surface-container);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      min-width: 640px;
+    }
+    th {
+      background: var(--surface-container-high);
+      color: var(--primary);
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: var(--label-tracking);
+      padding: var(--space-md);
+      border-bottom: var(--hairline-strong);
+      font-weight: 700;
+    }
+    td {
+      padding: var(--space-md);
+      border-bottom: var(--hairline);
+      vertical-align: top;
+      color: var(--on-surface);
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    tr:hover td {
+      background: var(--surface-container-low);
+    }
+
+    /* Simulator */
+    .sim-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+      gap: var(--space-xl);
+      align-items: start;
+    }
+    .control-group {
+      display: grid;
+      gap: var(--space-sm);
+      margin-bottom: var(--space-md);
+    }
+    .control-label {
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: var(--label-tracking);
+      color: var(--tertiary);
+      font-weight: 700;
+    }
+    .water-stage {
+      background: var(--water-wash);
+      border: var(--hairline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-md);
+      min-height: 290px;
+      display: grid;
+      gap: var(--space-md);
+    }
+    .metrics-trio {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-sm);
+    }
+    .metric-box {
+      background: var(--surface-container-low);
+      border: var(--hairline);
+      border-radius: var(--rounded);
+      padding: var(--space-sm) var(--space-md);
+    }
+    .metric-box-label {
+      font-size: var(--label-size);
+      color: var(--on-surface-variant);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .metric-box-val {
+      font-size: var(--subhead-size);
+      font-weight: 700;
+      margin-top: var(--space-xs);
+    }
+
+    @keyframes bobFloat {
+      0%, 100% { transform: translateY(0px) rotate(-1deg); }
+      50% { transform: translateY(-7px) rotate(1.2deg); }
+    }
+    @keyframes sinkFloat {
+      0% { transform: translateY(0px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(34px) rotate(8deg); opacity: 0.55; }
+    }
+    @keyframes meltFloat {
+      0%, 100% { transform: translateY(4px) scale(0.92); opacity: 0.85; }
+      50% { transform: translateY(9px) scale(0.86); opacity: 0.65; }
+    }
+    .float-bob { animation: bobFloat 3.4s ease-in-out infinite; }
+    .float-sink { animation: sinkFloat 2s ease-out forwards; }
+    .float-melt { animation: meltFloat 3s ease-in-out infinite; }
+
+    /* Bilingual Flashcards */
+    .flashcard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .flashcard {
+      background: var(--surface-container);
+      border: var(--hairline);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-lg);
+      min-height: 210px;
+      display: grid;
+      align-content: space-between;
+      gap: var(--space-md);
+      cursor: pointer;
+      transition: transform var(--dur-short) var(--ease-out), border-color var(--dur-short) var(--ease-out), background-color var(--dur-short) var(--ease-out);
+      text-align: left;
+    }
+    .flashcard:hover {
+      transform: translateY(-3px);
+      border-color: var(--primary);
+    }
+    .flashcard.flipped {
+      background: var(--surface-container-high);
+      border-color: var(--tertiary);
+    }
+    .flashcard.learned {
+      border-color: var(--banana-green);
+    }
+    .fc-thai {
+      font-size: 1.5rem;
+      color: var(--primary);
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    .fc-eng {
+      font-size: var(--subhead-size);
+      color: var(--on-surface);
+      font-weight: 600;
+    }
+    .fc-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-sm);
+      border-top: var(--hairline);
+      padding-top: var(--space-sm);
+    }
+
+    /* Quiz */
+    .quiz-shell {
+      display: grid;
+      gap: var(--space-lg);
+    }
+    .quiz-progress-bar {
+      height: 8px;
+      background: var(--background);
+      border: var(--hairline);
+      border-radius: var(--rounded-full);
+      overflow: hidden;
+    }
+    .quiz-progress-fill {
+      height: 100%;
+      background: var(--primary);
+      width: 10%;
+      transition: width var(--dur-short) var(--ease-out);
+    }
+    .quiz-options {
+      display: grid;
+      gap: var(--space-sm);
+    }
+    .quiz-option {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      width: 100%;
+      text-align: left;
+      min-height: 48px;
+      padding: var(--space-md);
+      background: var(--surface-container-low);
+      border: var(--hairline-strong);
+      border-radius: var(--rounded);
+      cursor: pointer;
+      transition: background-color var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out);
+    }
+    .quiz-option:hover:not(:disabled) {
+      background: var(--surface-container-high);
+      border-color: var(--primary);
+    }
+    .quiz-option.correct {
+      background: var(--green-tint);
+      border-color: var(--banana-green);
+      color: var(--on-surface);
+    }
+    .quiz-option.incorrect {
+      background: var(--error-tint);
+      border-color: var(--error);
+      color: var(--on-surface);
+    }
+    .quiz-feedback {
+      padding: var(--space-md);
+      border-radius: var(--rounded);
+      border: var(--hairline);
+      background: var(--surface-container-low);
+    }
+    .certificate-box {
+      background: var(--primary-container);
+      border: 2px solid var(--primary);
+      border-radius: var(--rounded-lg);
+      padding: var(--space-xl);
+      text-align: center;
+      display: grid;
+      gap: var(--space-md);
+      justify-items: center;
+    }
+
+    /* Discussion & Reflection */
+    .pledge-textarea {
+      width: 100%;
+      min-height: 100px;
+      background: var(--background);
+      border: var(--hairline-strong);
+      border-radius: var(--rounded);
+      padding: var(--space-md);
+      color: var(--on-surface);
+      resize: vertical;
+    }
+    .input-label {
+      display: block;
+      font-size: var(--label-size);
+      text-transform: uppercase;
+      letter-spacing: var(--label-tracking);
+      color: var(--tertiary);
+      margin-bottom: var(--space-xs);
+      font-weight: 700;
+    }
+
+    .site-footer {
+      border-top: var(--hairline);
+      padding: var(--space-xl) var(--space-lg);
+      max-width: 1120px;
+      margin: 0 auto;
+      color: var(--on-surface-variant);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 820px) {
+      .hero-inner,
+      .two-col-split,
+      .anatomy-container,
+      .sim-grid {
+        grid-template-columns: 1fr;
+      }
+      .metrics-trio {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-grid {
+        padding: var(--space-md);
+        gap: var(--space-xl);
+      }
+      .hero-header {
+        padding: var(--space-xl) var(--space-md) var(--space-lg);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO HEADER -->
+  <header class="hero-header">
+    <div class="hero-inner">
+      <div>
+        <span class="coord-label">Grade 5 Bilingual Explorer · CEFR A2–B1 · Thai Cultural Heritage</span>
+        <h1 class="hero-title">Loy Krathong: <em>Festival of Lights</em> on the Water</h1>
+        <p class="thai-subtitle">วันลอยกระทง (Wan Loy Krathong) — Gratitude, Wisdom &amp; River Care</p>
+        <p class="hero-lede">
+          Every year on the full moon night of the twelfth Thai lunar month, rivers and canals across Thailand glow with thousands of candlelit baskets. Discover where this tradition comes from, what every flower and candle means, and how young explorers can celebrate while protecting our waterways.
+        </p>
+        <nav class="hero-nav" aria-label="Lesson chapters">
+          <a class="nav-pill" href="#sec-history">1. Origins &amp; History</a>
+          <a class="nav-pill" href="#sec-anatomy">2. Meaning &amp; Anatomy</a>
+          <a class="nav-pill" href="#sec-regions">3. Thailand &amp; Asia</a>
+          <a class="nav-pill" href="#sec-simulator">4. Krathong Lab</a>
+          <a class="nav-pill" href="#sec-flashcards">5. Thai Flashcards</a>
+          <a class="nav-pill" href="#sec-quiz">6. Explorer Quiz</a>
+        </nav>
+      </div>
+
+      <aside class="hero-visual-card" aria-label="Festival overview and progress">
+        <span class="coord-label">Quick Explorer Tracker</span>
+        <div style="display:flex; justify-content:center; padding: var(--space-md) 0;">
+          <svg width="210" height="130" viewBox="0 0 210 130" aria-hidden="true">
+            <!-- Night moon -->
+            <circle cx="170" cy="28" r="16" fill="var(--primary)" opacity="0.9"></circle>
+            <circle cx="170" cy="28" r="24" fill="var(--primary)" opacity="0.16"></circle>
+            <!-- Water ripples -->
+            <path d="M15 104 Q55 96 105 104 T195 104" fill="none" stroke="var(--tertiary)" stroke-width="2" opacity="0.7"></path>
+            <path d="M30 116 Q75 110 120 116 T185 116" fill="none" stroke="var(--tertiary)" stroke-width="1.5" opacity="0.45"></path>
+            <!-- Banana leaf krathong -->
+            <ellipse cx="105" cy="94" rx="48" ry="11" fill="var(--banana-deep)" stroke="var(--banana-green)" stroke-width="2"></ellipse>
+            <path d="M62 90 L76 66 L90 88 L105 62 L120 88 L134 66 L148 90 Z" fill="var(--banana-green)" opacity="0.9"></path>
+            <!-- Flowers -->
+            <circle cx="84" cy="83" r="5" fill="var(--lantern-amber)"></circle>
+            <circle cx="126" cy="83" r="5" fill="var(--lotus-rose)"></circle>
+            <!-- Candle & incense -->
+            <rect x="102" y="47" width="6" height="32" rx="1" fill="var(--on-surface)"></rect>
+            <path d="M105 33 Q111 41 105 47 Q99 41 105 33 Z" fill="var(--primary)"></path>
+            <line x1="94" y1="78" x2="89" y2="44" stroke="var(--on-surface-variant)" stroke-width="1.5"></line>
+            <line x1="105" y1="78" x2="105" y2="41" stroke="var(--on-surface-variant)" stroke-width="1.5"></line>
+            <line x1="116" y1="78" x2="121" y2="44" stroke="var(--on-surface-variant)" stroke-width="1.5"></line>
+          </svg>
+        </div>
+        <div class="progress-summary">
+          <div>
+            <div class="stat-mini-label">Words Mastered</div>
+            <div class="stat-mini-value" id="hero-words-count">0 / 8</div>
+          </div>
+          <div>
+            <div class="stat-mini-label">Quiz Score</div>
+            <div class="stat-mini-value" id="hero-quiz-score">0 / 10</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main class="page-grid">
+
+    <!-- SECTION 1: ORIGIN & HISTORY -->
+    <section id="sec-history" class="story-section">
+      <div class="section-head">
+        <span class="coord-label">Chapter 1 · Origins &amp; Historical Detective Work</span>
+        <h2 class="section-title">From Sacred Ancient Rivers to the <em>Sukhothai Legend</em></h2>
+      </div>
+
+      <div class="two-col-split">
+        <div class="panel">
+          <h3>Ancient Roots: Honoring Water Spirits</h3>
+          <p class="prose-col">
+            Long before modern cities existed, farming communities in ancient India and Southeast Asia depended completely on rivers and monsoon rains to grow rice. In ancient Indian (Brahmanical) traditions, people floated small clay oil lamps on the sacred <strong>Ganges River</strong> to thank water spirits after the rainy season ended.
+          </p>
+          <p class="prose-col" style="margin-top: var(--space-md);">
+            When Buddhism spread across Southeast Asia, Thai communities blended these ancient water rituals with Buddhist values. Floating a lit basket became a way to honor the Buddha’s footprint along the Narmada River and to pause in gratitude for nature’s gifts.
+          </p>
+          <div class="vocab-callout" style="margin-top: var(--space-md);">
+            <span class="vocab-thai">วันเพ็ญเดือนสิบสอง</span>
+            <span class="vocab-phonetic">“wan phen duean sip-song”</span>
+            <span>— Full moon of the 12th lunar month (usually November, when rivers are full and calm).</span>
+          </div>
+        </div>
+
+        <div class="panel-low history-toggle-box">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:var(--space-sm);">
+            <h3 style="margin:0;">Legend vs. Historical Fact</h3>
+            <span class="badge badge-brass">Critical Thinking</span>
+          </div>
+          <p class="prose-muted">
+            Many Thai storybooks tell the tale of <strong>Lady Nopphamat</strong> (<span class="vocab-thai">นางนพมาศ</span>). Switch between the story and what historians found:
+          </p>
+          <div class="btn-row" role="group" aria-label="Compare legend and historical evidence">
+            <button type="button" class="btn btn-active" id="btn-hist-legend" aria-pressed="true" onclick="setHistoryView('legend')">Read the Sukhothai Legend</button>
+            <button type="button" class="btn" id="btn-hist-fact" aria-pressed="false" onclick="setHistoryView('fact')">Check Historical Evidence</button>
+            <button type="button" class="btn" id="btn-hist-both" aria-pressed="false" onclick="setHistoryView('both')">Compare Both</button>
+          </div>
+          <div id="history-view-output" class="observation-well" aria-live="polite">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: CORE SYMBOLISM & ANATOMY -->
+    <section id="sec-anatomy" class="story-section">
+      <div class="section-head">
+        <span class="coord-label">Chapter 2 · Meaning, Gratitude &amp; Craftsmanship</span>
+        <h2 class="section-title">What Every Part of a <em>Krathong</em> Symbolizes</h2>
+      </div>
+
+      <div class="card-grid">
+        <article class="panel">
+          <span class="badge">Word Root 1</span>
+          <h3 style="margin-top:var(--space-sm);">Loy (<span class="vocab-thai">ลอย</span>) = To Float</h3>
+          <p class="prose-muted">
+            Pronounced <em>“loy”</em>, this Thai verb means to float or drift gently on water or air. As your basket drifts away down the river, it carries away old worries.
+          </p>
+        </article>
+        <article class="panel">
+          <span class="badge badge-green">Word Root 2</span>
+          <h3 style="margin-top:var(--space-sm);">Krathong (<span class="vocab-thai">กระทง</span>) = Leaf Basket</h3>
+          <p class="prose-muted">
+            Pronounced <em>“kra-thong”</em>, it describes a small bowl or basket traditionally folded by hand from banana leaves and held on a slice of banana tree trunk.
+          </p>
+        </article>
+        <article class="panel">
+          <span class="badge badge-amber">Deep Meaning</span>
+          <h3 style="margin-top:var(--space-sm);">Bunkhun (<span class="vocab-thai">บุญคุณ</span>) &amp; Letting Go</h3>
+          <p class="prose-muted">
+            We float it to thank <strong>Phra Mae Khongkha</strong> (<span class="vocab-thai">พระแม่คงคา</span>, Water Goddess) for water to drink, bathe, and grow rice—and to apologize (<em>Kho Khama</em>) for polluting rivers while letting go of anger and bad luck.
+          </p>
+        </article>
+      </div>
+
+      <!-- Interactive Krathong Anatomy Explorer -->
+      <div class="panel">
+        <div style="display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:var(--space-sm); margin-bottom:var(--space-md);">
+          <div>
+            <h3 style="margin:0;">Interactive Anatomy of a Traditional Krathong</h3>
+            <p class="prose-muted" style="margin-top:var(--space-xs);">Click any glowing part on the drawing or choose a button below to inspect its cultural meaning.</p>
+          </div>
+          <span class="badge badge-brass" id="anatomy-step-counter">Part 1 of 5</span>
+        </div>
+
+        <div class="anatomy-container">
+          <div class="anatomy-svg-wrap">
+            <svg width="310" height="270" viewBox="0 0 310 270" role="img" aria-label="Interactive diagram of a traditional Krathong">
+              <!-- Water glow -->
+              <ellipse cx="155" cy="222" rx="125" ry="22" fill="var(--sky-tint)" stroke="var(--tertiary)" stroke-width="1" stroke-dasharray="4 4"></ellipse>
+              <!-- Part 1: Banana Trunk Base -->
+              <g class="anatomy-hotspot" onclick="selectAnatomyPart('base')" tabindex="0" role="button" aria-label="Inspect Banana Trunk Base">
+                <ellipse cx="155" cy="202" rx="92" ry="20" fill="var(--banana-deep)" stroke="var(--banana-green)" stroke-width="2.5"></ellipse>
+                <rect x="63" y="182" width="184" height="20" fill="var(--banana-deep)" stroke="var(--banana-green)" stroke-width="2"></rect>
+                <ellipse cx="155" cy="182" rx="92" ry="18" fill="var(--banana-green)" opacity="0.35" stroke="var(--banana-green)" stroke-width="2"></ellipse>
+                <circle cx="242" cy="194" r="11" fill="var(--primary)" opacity="0.9"></circle>
+                <text x="242" y="198" text-anchor="middle" fill="var(--on-primary)" font-size="12" font-weight="bold">1</text>
+              </g>
+              <!-- Part 2: Folded Banana Leaves -->
+              <g class="anatomy-hotspot" onclick="selectAnatomyPart('leaves')" tabindex="0" role="button" aria-label="Inspect Folded Banana Leaves">
+                <path d="M68 180 L84 128 L104 176 L124 120 L144 174 L155 116 L166 174 L186 120 L206 176 L226 128 L242 180 Z" fill="var(--banana-green)" opacity="0.88" stroke="var(--banana-deep)" stroke-width="1.5"></path>
+                <circle cx="72" cy="144" r="11" fill="var(--primary)" opacity="0.9"></circle>
+                <text x="72" y="148" text-anchor="middle" fill="var(--on-primary)" font-size="12" font-weight="bold">2</text>
+              </g>
+              <!-- Part 5: Fresh Flowers & Coin -->
+              <g class="anatomy-hotspot" onclick="selectAnatomyPart('flowers')" tabindex="0" role="button" aria-label="Inspect Fresh Flowers and Coin">
+                <circle cx="105" cy="166" r="12" fill="var(--lantern-amber)"></circle>
+                <circle cx="130" cy="172" r="10" fill="var(--lotus-rose)"></circle>
+                <circle cx="180" cy="172" r="10" fill="var(--lotus-rose)"></circle>
+                <circle cx="205" cy="166" r="12" fill="var(--lantern-amber)"></circle>
+                <circle cx="155" cy="176" r="8" fill="var(--primary)" stroke="var(--on-surface)" stroke-width="1"></circle>
+                <circle cx="222" cy="152" r="11" fill="var(--primary)" opacity="0.9"></circle>
+                <text x="222" y="156" text-anchor="middle" fill="var(--on-primary)" font-size="12" font-weight="bold">5</text>
+              </g>
+              <!-- Part 4: Three Incense Sticks -->
+              <g class="anatomy-hotspot" onclick="selectAnatomyPart('incense')" tabindex="0" role="button" aria-label="Inspect Three Incense Sticks">
+                <line x1="141" y1="164" x2="127" y2="62" stroke="var(--on-surface-variant)" stroke-width="3"></line>
+                <line x1="155" y1="164" x2="155" y2="54" stroke="var(--on-surface-variant)" stroke-width="3"></line>
+                <line x1="169" y1="164" x2="183" y2="62" stroke="var(--on-surface-variant)" stroke-width="3"></line>
+                <circle cx="127" cy="60" r="3.5" fill="var(--lantern-amber)"></circle>
+                <circle cx="155" cy="52" r="3.5" fill="var(--lantern-amber)"></circle>
+                <circle cx="183" cy="60" r="3.5" fill="var(--lantern-amber)"></circle>
+                <circle cx="116" cy="72" r="11" fill="var(--primary)" opacity="0.9"></circle>
+                <text x="116" y="76" text-anchor="middle" fill="var(--on-primary)" font-size="12" font-weight="bold">4</text>
+              </g>
+              <!-- Part 3: Candle -->
+              <g class="anatomy-hotspot" onclick="selectAnatomyPart('candle')" tabindex="0" role="button" aria-label="Inspect Candle">
+                <rect x="148" y="96" width="14" height="68" rx="2" fill="var(--on-surface)"></rect>
+                <circle cx="155" cy="75" r="22" fill="var(--primary)" opacity="0.22"></circle>
+                <path d="M155 58 Q166 74 155 92 Q144 74 155 58 Z" fill="var(--primary)"></path>
+                <path d="M155 68 Q160 76 155 86 Q150 76 155 68 Z" fill="var(--lantern-amber)"></path>
+                <circle cx="192" cy="96" r="11" fill="var(--primary)" opacity="0.9"></circle>
+                <text x="192" y="100" text-anchor="middle" fill="var(--on-primary)" font-size="12" font-weight="bold">3</text>
+              </g>
+            </svg>
+          </div>
+
+          <div>
+            <div class="part-btn-grid" role="group" aria-label="Krathong parts selector">
+              <button type="button" class="btn btn-active" id="part-btn-base" aria-pressed="true" onclick="selectAnatomyPart('base')">1. Trunk Base</button>
+              <button type="button" class="btn" id="part-btn-leaves" aria-pressed="false" onclick="selectAnatomyPart('leaves')">2. Banana Leaves</button>
+              <button type="button" class="btn" id="part-btn-candle" aria-pressed="false" onclick="selectAnatomyPart('candle')">3. Candle</button>
+              <button type="button" class="btn" id="part-btn-incense" aria-pressed="false" onclick="selectAnatomyPart('incense')">4. 3 Incense</button>
+              <button type="button" class="btn" id="part-btn-flowers" aria-pressed="false" onclick="selectAnatomyPart('flowers')">5. Flowers &amp; Coin</button>
+            </div>
+            <div class="part-detail-card" id="anatomy-detail-box" aria-live="polite">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: REGIONAL THAILAND & ASIAN SISTER FESTIVALS -->
+    <section id="sec-regions" class="story-section">
+      <div class="section-head">
+        <span class="coord-label">Chapter 3 · One Full Moon, Many Celebrations</span>
+        <h2 class="section-title">How Festivals Glow Across <em>Thailand &amp; Asia</em></h2>
+      </div>
+
+      <div class="panel">
+        <h3>Regional Styles Inside Thailand</h3>
+        <p class="prose-muted" style="margin-bottom: var(--space-md);">
+          Even inside Thailand, different provinces celebrate Loy Krathong with their own local art and landscapes. Click a region to explore:
+        </p>
+        <div class="btn-row" role="group" aria-label="Thai regional celebrations" style="margin-bottom: var(--space-md);">
+          <button type="button" class="btn btn-active" id="reg-btn-chiangmai" aria-pressed="true" onclick="selectRegion('chiangmai')">Chiang Mai (Yi Peng)</button>
+          <button type="button" class="btn" id="reg-btn-sukhothai" aria-pressed="false" onclick="selectRegion('sukhothai')">Sukhothai (Candle Festival)</button>
+          <button type="button" class="btn" id="reg-btn-bangkok" aria-pressed="false" onclick="selectRegion('bangkok')">Bangkok (Chao Phraya)</button>
+          <button type="button" class="btn" id="reg-btn-tak" aria-pressed="false" onclick="selectRegion('tak')">Tak (Krathong Sai)</button>
+        </div>
+        <div class="observation-well" id="region-detail-box" aria-live="polite">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-size: var(--subhead-size); color: var(--primary); margin: 0 0 var(--space-sm); font-weight: 400;">
+          Sister Festivals Across Asia: Sharing Light on Water
+        </h3>
+        <p class="prose-muted" style="margin-bottom: var(--space-md);">
+          Thailand is not alone! Neighbors across South and Southeast Asia also celebrate the end of the rainy season with glowing lanterns and water ceremonies.
+        </p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Country</th>
+                <th>Festival Name</th>
+                <th>Timing</th>
+                <th>Signature Tradition</th>
+                <th>Shared Theme</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Thailand</strong></td>
+                <td>Loy Krathong (<span class="vocab-thai">ลอยกระทง</span>)</td>
+                <td>Full moon, 12th lunar month</td>
+                <td>Banana-leaf baskets with candles, 3 incense sticks, and flowers floated on rivers</td>
+                <td>Gratitude to Phra Mae Khongkha &amp; letting go of negativity</td>
+              </tr>
+              <tr>
+                <td><strong>Myanmar</strong></td>
+                <td>Tazaungdaing Festival</td>
+                <td>Full moon of Tazaungmon (Nov)</td>
+                <td>Hot-air fire balloons, candle-lit pagodas, and robe-weaving contests</td>
+                <td>Honoring light over darkness at the end of rains</td>
+              </tr>
+              <tr>
+                <td><strong>Laos</strong></td>
+                <td>Boun Lai Heua Fai</td>
+                <td>End of Buddhist Lent (Oct–Nov)</td>
+                <td>Illuminated bamboo and banana-stalk “fire boats” launched down the Mekong</td>
+                <td>Thanking water spirits &amp; sending away misfortune</td>
+              </tr>
+              <tr>
+                <td><strong>Cambodia</strong></td>
+                <td>Bon Om Touk (Water Festival)</td>
+                <td>Full moon of Kadeuk (Nov)</td>
+                <td>Dragon boat races and illuminated royal floats along the Tonle Sap &amp; Mekong</td>
+                <td>Celebrating the river’s seasonal reversal &amp; harvest</td>
+              </tr>
+              <tr>
+                <td><strong>India</strong></td>
+                <td>Dev Deepawali / Kartik Purnima</td>
+                <td>Full moon of Kartik (Nov)</td>
+                <td>Thousands of earthen oil lamps (<em>diyas</em>) along river steps and floating on the Ganges</td>
+                <td>Ancient reverence for sacred rivers and inner wisdom</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: BUILD & FLOAT SIMULATOR -->
+    <section id="sec-simulator" class="story-section">
+      <div class="section-head">
+        <span class="coord-label">Chapter 4 · Hands-On Environmental Science Lab</span>
+        <h2 class="section-title">Build &amp; Float Your <em>Virtual Krathong</em></h2>
+      </div>
+
+      <p class="prose-col">
+        Every Loy Krathong night, hundreds of thousands of krathongs enter Thailand’s rivers and ponds. As young scientists, let’s test how different materials behave in the water—and which choices protect fish and keep rivers clean!
+      </p>
+
+      <div class="panel sim-grid">
+        <div>
+          <div class="control-group">
+            <span class="control-label">1. Choose Your Base Material</span>
+            <div class="btn-row" role="group" aria-label="Base material">
+              <button type="button" class="btn btn-active" id="mat-banana" aria-pressed="true" onclick="setSimMaterial('banana')">Banana Trunk</button>
+              <button type="button" class="btn" id="mat-bread" aria-pressed="false" onclick="setSimMaterial('bread')">Baked Bread</button>
+              <button type="button" class="btn" id="mat-ice" aria-pressed="false" onclick="setSimMaterial('ice')">Ice Block</button>
+              <button type="button" class="btn" id="mat-foam" aria-pressed="false" onclick="setSimMaterial('foam')">Styrofoam</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <span class="control-label">2. Choose Your Pins / Fasteners</span>
+            <div class="btn-row" role="group" aria-label="Fasteners">
+              <button type="button" class="btn btn-active" id="pin-bamboo" aria-pressed="true" onclick="setSimPin('bamboo')">Natural Bamboo Pins</button>
+              <button type="button" class="btn" id="pin-staple" aria-pressed="false" onclick="setSimPin('staple')">Metal Staples / Nails</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <span class="control-label">3. Choose the Waterway</span>
+            <div class="btn-row" role="group" aria-label="Waterway type">
+              <button type="button" class="btn btn-active" id="water-river" aria-pressed="true" onclick="setSimWater('river')">Flowing River</button>
+              <button type="button" class="btn" id="water-pond" aria-pressed="false" onclick="setSimWater('pond')">Still City Pond</button>
+            </div>
+          </div>
+
+          <div class="btn-row" style="margin-top: var(--space-lg);">
+            <button type="button" class="btn btn-primary" onclick="launchSimulator()">Launch &amp; Test Krathong</button>
+            <button type="button" class="btn" onclick="resetSimulator()">Reset Lab</button>
+          </div>
+        </div>
+
+        <div class="water-stage">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:var(--space-sm);">
+            <span class="coord-label" id="sim-status-tag">Ready to Test</span>
+            <span class="badge badge-green" id="sim-eco-badge">Eco Score: --</span>
+          </div>
+
+          <div style="display:flex; justify-content:center; align-items:center; min-height: 155px; position:relative;">
+            <svg width="280" height="145" viewBox="0 0 280 145" role="img" aria-label="Simulated Krathong floating on water">
+              <!-- Night sky dots -->
+              <circle cx="32" cy="22" r="1.5" fill="var(--on-surface-variant)"></circle>
+              <circle cx="240" cy="18" r="2" fill="var(--primary)"></circle>
+              <circle cx="195" cy="28" r="1.5" fill="var(--on-surface-variant)"></circle>
+              <!-- Water surface -->
+              <rect x="0" y="96" width="280" height="49" rx="6" fill="var(--sky-tint)"></rect>
+              <path d="M10 106 Q70 98 140 106 T270 106" fill="none" stroke="var(--tertiary)" stroke-width="2" opacity="0.7"></path>
+              <path d="M22 126 Q90 120 155 126 T265 126" fill="none" stroke="var(--tertiary)" stroke-width="1.5" opacity="0.4"></path>
+              <!-- Dynamic Krathong Group -->
+              <g id="sim-krathong-svg" class="float-bob">
+                <ellipse id="sim-base-ellipse" cx="140" cy="96" rx="46" ry="12" fill="var(--banana-deep)" stroke="var(--banana-green)" stroke-width="2.5"></ellipse>
+                <path id="sim-leaf-crown" d="M98 92 L112 68 L126 90 L140 64 L154 90 L168 68 L182 92 Z" fill="var(--banana-green)" opacity="0.9"></path>
+                <rect x="137" y="48" width="6" height="32" rx="1" fill="var(--on-surface)"></rect>
+                <path d="M140 34 Q146 42 140 48 Q134 42 140 34 Z" fill="var(--primary)"></path>
+                <circle cx="120" cy="84" r="4.5" fill="var(--lantern-amber)"></circle>
+                <circle cx="160" cy="84" r="4.5" fill="var(--lotus-rose)"></circle>
+              </g>
+            </svg>
+          </div>
+
+          <div class="metrics-trio">
+            <div class="metric-box">
+              <div class="metric-box-label">Floatability</div>
+              <div class="metric-box-val" id="sim-float-val" style="color:var(--tertiary);">--</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-box-label">Decompose Time</div>
+              <div class="metric-box-val" id="sim-decomp-val" style="color:var(--primary);">--</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-box-label">River Safety</div>
+              <div class="metric-box-val" id="sim-safety-val" style="color:var(--banana-green);">--</div>
+            </div>
+          </div>
+
+          <div class="observation-well" id="sim-verdict-text" aria-live="polite">
+            Choose a base material, fastener, and waterway, then click <strong>Launch &amp; Test Krathong</strong> to see the science verdict.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: BILINGUAL FLASHCARDS -->
+    <section id="sec-flashcards" class="story-section">
+      <div class="section-head">
+        <span class="coord-label">Chapter 5 · Bilingual Vocabulary Deck</span>
+        <h2 class="section-title">Essential Thai–English <em>Explorer Flashcards</em></h2>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:var(--space-md);">
+        <p class="prose-muted">
+          Click any card (or press Enter) to flip between the Thai word and its English meaning, pronunciation, and example sentence. Mark cards as mastered as you learn!
+        </p>
+        <div class="btn-row">
+          <span class="badge badge-green" id="fc-mastery-badge">0 of 8 Mastered</span>
+          <button type="button" class="btn" onclick="resetFlashcards()">Reset Mastery</button>
+        </div>
+      </div>
+
+      <div class="flashcard-grid" id="flashcard-grid">
+        <!-- Populated by JS -->
+      </div>
+    </section>
+
+    <!-- SECTION 6: 10-QUESTION JUNIOR EXPLORER QUIZ -->
+    <section id="sec-quiz" class="story-section">
+      <div class="section-head">
+        <span class="coord-label">Chapter 6 · Check Your Understanding</span>
+        <h2 class="section-title">Junior Explorer <em>10-Question Quiz</em></h2>
+      </div>
+
+      <div class="panel quiz-shell" id="quiz-panel">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:var(--space-sm);">
+          <span class="coord-label" id="quiz-q-counter">Question 1 of 10</span>
+          <span class="badge badge-brass" id="quiz-score-badge">Score: 0 / 10</span>
+        </div>
+
+        <div class="quiz-progress-bar" aria-hidden="true">
+          <div class="quiz-progress-fill" id="quiz-progress-fill"></div>
+        </div>
+
+        <div id="quiz-stage">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: STUDENT DISCUSSION CORNER -->
+    <section id="sec-discussion" class="story-section">
+      <div class="section-head">
+        <span class="coord-label">Chapter 7 · Think Like a Water Guardian</span>
+        <h2 class="section-title">Student <em>Discussion Corner</em></h2>
+      </div>
+
+      <div class="card-grid">
+        <article class="panel-low">
+          <span class="badge badge-brass">Prompt 1</span>
+          <h3 style="margin-top:var(--space-sm);">One Krathong Per Family?</h3>
+          <p class="prose-muted">
+            If a family of four shares one beautifully crafted krathong instead of floating four separate ones, does their gratitude to Phra Mae Khongkha stay just as strong? Why or why not?
+          </p>
+        </article>
+        <article class="panel-low">
+          <span class="badge badge-amber">Prompt 2</span>
+          <h3 style="margin-top:var(--space-sm);">The Bread Krathong Puzzle</h3>
+          <p class="prose-muted">
+            Many people buy bread krathongs thinking fish will eat them all. In a still pond with thousands of krathongs, leftover soggy bread rots and steals oxygen from fish! How can we solve this?
+          </p>
+        </article>
+        <article class="panel-low">
+          <span class="badge badge-green">Prompt 3</span>
+          <h3 style="margin-top:var(--space-sm);">Tradition Meets Tomorrow</h3>
+          <p class="prose-muted">
+            Imagine you are organizing your school’s Loy Krathong night. What two rules would you suggest so students enjoy the glowing festival while keeping local waterways clean?
+          </p>
+        </article>
+      </div>
+
+      <div class="panel">
+        <label class="input-label" for="student-pledge-input">Write Your Personal Water Guardian Promise (Saved Automatically)</label>
+        <textarea id="student-pledge-input" class="pledge-textarea" placeholder="Example: This year, my family will share one banana-trunk krathong with bamboo pins, and we will never use styrofoam or metal staples..."></textarea>
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:var(--space-sm); margin-top:var(--space-md);">
+          <span class="prose-muted" id="pledge-save-status">Your reflection saves automatically in your notebook workspace.</span>
+          <button type="button" class="btn btn-primary" onclick="saveStudentPledge()">Save My Promise</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <strong>Sources &amp; Study Notes:</strong> Cultural vocabulary and holiday overview inspired by <em>Learn Thai Holidays — Loy Krathong Day</em> (ThaiPod101), paired with Thai historical scholarship on Sukhothai-era traditions, regional Southeast Asian full-moon festivals, and environmental water-stewardship guidance for Grade 5 bilingual learners.
+  </footer>
+
+  <api-shim></api-shim>
+  <script>
+    // ---------- DATA DEFINITIONS ----------
+    const HISTORY_VIEWS = {
+      legend: {
+        badge: `The Traditional Tale`,
+        text: `In the famous Sukhothai story, a wise and talented royal lady named <strong>Nang Nopphamat</strong> (นางนพมาศ) shaped a banana-leaf basket to look like a blooming lotus flower. She placed a glowing candle and flowers inside and presented it to King Ramkhamhaeng (Phra Ruang). The King loved the design so much that he ordered everyone in the kingdom to float lotus-shaped krathongs every full moon of the 12th month.`
+      },
+      fact: {
+        badge: `What Historians Found`,
+        text: `Historians studying ancient stone inscriptions found that water-lamp rituals already existed in Sukhothai (called <em>Chong Phriang</em>). However, the storybook about Lady Nopphamat was actually written centuries later during the early Bangkok period (King Rama III’s era) as a literary tale teaching royal manners! Even though Lady Nopphamat is likely a literary character, her story beautifully explains how Thai lotus artistry became part of the festival.`
+      },
+      both: {
+        badge: `Side-by-Side Reasoning`,
+        text: `<strong>Legend:</strong> Credits Lady Nopphamat in 13th-century Sukhothai for inventing the lotus-shaped krathong.<br><br><strong>Historical Fact:</strong> Ancient Indian, Brahmanical, and early Sukhothai water-lantern customs came first, while the Nopphamat book was written in the 1800s. Both stories together show why Thailand honors water with lotus beauty!`
+      }
+    };
+
+    const ANATOMY_PARTS = {
+      base: {
+        step: `Part 1 of 5`,
+        title: `Banana Trunk Base — Ton Kluai (ต้นกล้วย)`,
+        thai: `ฐานต้นกล้วย`,
+        meaning: `A round slice of soft banana tree stem forms the sturdy raft. Because banana stems are full of tiny air pockets, they float easily on water and break down naturally without plastic waste.`,
+        tip: `Eco Tip: Banana trunks decompose in 1–2 weeks when collected and composted!`
+      },
+      leaves: {
+        step: `Part 2 of 5`,
+        title: `Folded Banana Leaves — Bai Tong (ใบตอง)`,
+        thai: `กลีบใบตอง`,
+        meaning: `Fresh green banana leaves are carefully folded into petal shapes (such as <em>Klip Bua</em> lotus petals) and pinned around the base. They honor the sacred lotus flower, a symbol of purity and growth in Buddhism.`,
+        tip: `Craft Tip: Use thin bamboo toothpicks (Mai Klat) instead of metal staples to fasten the leaves.`
+      },
+      candle: {
+        step: `Part 3 of 5`,
+        title: `The Candle — Thian (เทียน)`,
+        thai: `เทียนแสงสว่าง`,
+        meaning: `Placed in the center, the glowing flame represents the light of wisdom (<em>Panya</em>) and the teachings of the Buddha guiding people out of darkness and confusion.`,
+        tip: `Safety Note: Never leave lit candles unattended near dry grass or wooden docks.`
+      },
+      incense: {
+        step: `Part 4 of 5`,
+        title: `Three Incense Sticks — Thup Sam Dok (ธูป ๓ ดอก)`,
+        thai: `ธูป ๓ ดอก`,
+        meaning: `Three incense sticks stand for the <strong>Triple Gem</strong> (<em>Phra Rattana Trai</em>): the Buddha (the teacher), the Dhamma (the teachings), and the Sangha (the community of monks).`,
+        tip: `Clean Air Option: In crowded city parks, many students choose unlit incense or candle-only krathongs to keep the air fresh.`
+      },
+      flowers: {
+        step: `Part 5 of 5`,
+        title: `Fresh Flowers & Coin — Dok Mai & Rian (ดอกไม้และเหรียญ)`,
+        thai: `ดอกไม้และเหรียญ`,
+        meaning: `Bright yellow marigolds (<em>Dao Rueang</em>), globe amaranths (<em>Ban Mai Ru Roi</em>), or lotus buds represent beauty, lasting friendships, and respect. A small coin is sometimes added as an act of generosity (<em>Thambun</em>).`,
+        tip: `River Rule: Avoid plastic foam flowers or glitter—real flowers return safely to nature.`
+      }
+    };
+
+    const REGIONS = {
+      chiangmai: {
+        title: `Chiang Mai & Northern Thailand — Yi Peng (ยี่เป็ง)`,
+        highlight: `Sky Lanterns (Khom Loy) + River Krathongs`,
+        desc: `In Lanna culture (northern Thailand), Loy Krathong happens alongside <strong>Yi Peng</strong>—meaning the full moon of the second Lanna lunar month. Families decorate houses with colorful paper lanterns (<em>Khom</em>) and release glowing sky lanterns while floating krathongs on the Ping River. Today, sky-lantern launches are strictly timed in safe zones to protect airplanes and forests.`
+      },
+      sukhothai: {
+        title: `Sukhothai — Phao Thian Len Fai (เผาเทียนเล่นไฟ)`,
+        highlight: `Ancient Temple Ruins & Candlelight`,
+        desc: `At the Sukhothai Historical Park, celebrations last several days around ancient brick temples and serene ponds. Thousands of clay oil lamps light up the temple walls, accompanied by traditional Thai classical music, folk parades, and handcrafted lotus krathongs honoring the kingdom’s heritage.`
+      },
+      bangkok: {
+        title: `Bangkok & Central Plains — Chao Phraya River`,
+        highlight: `Grand Riverfronts & Eco-Friendly Zones`,
+        desc: `Along the mighty Chao Phraya River and in city parks like Benjasiri and Lumpini, millions of families gather at piers and ponds. Modern Bangkok also leads eco-friendly trends: offering digital floating projections, ice krathongs, and organized morning river cleanups that recycle banana trunks into fertilizer.`
+      },
+      tak: {
+        title: `Tak Province — Loy Krathong Sai (ลอยกระทงสาย)`,
+        highlight: `Glowing Ribbons of Coconut Shells`,
+        desc: `On the wide Ping River in Tak, communities craft hundreds of tiny oil lamps inside polished coconut shells! Released one after another into the steady river current, they form a shimmering golden snake of light stretching for kilometers down the river.`
+      }
+    };
+
+    const SIM_MATERIALS = {
+      banana: {
+        label: `Banana Trunk`,
+        float: `Floats Steadily`,
+        decomp: `7–14 days`,
+        animClass: `float-bob`,
+        ellipseFill: `var(--banana-deep)`,
+        ellipseStroke: `var(--banana-green)`,
+        crownFill: `var(--banana-green)`
+      },
+      bread: {
+        label: `Baked Bread`,
+        float: `Sinks After 20 min`,
+        decomp: `1–3 days`,
+        animClass: `float-melt`,
+        ellipseFill: `var(--primary-container)`,
+        ellipseStroke: `var(--primary)`,
+        crownFill: `var(--lantern-amber)`
+      },
+      ice: {
+        label: `Ice Block`,
+        float: `Melts Gently`,
+        decomp: `30–60 minutes`,
+        animClass: `float-melt`,
+        ellipseFill: `var(--sky-tint)`,
+        ellipseStroke: `var(--tertiary)`,
+        crownFill: `var(--tertiary)`
+      },
+      foam: {
+        label: `Styrofoam`,
+        float: `Floats Too Long`,
+        decomp: `500+ years!`,
+        animClass: `float-sink`,
+        ellipseFill: `var(--surface-container-high)`,
+        ellipseStroke: `var(--error)`,
+        crownFill: `var(--error)`
+      }
+    };
+
+    const FLASHCARDS = [
+      {
+        id: `fc1`,
+        thai: `ลอย`,
+        phonetic: `loy (/lɔːj/)`,
+        eng: `Loy — To Float`,
+        detail: `To drift gently on water or in the sky. Example: “We float a krathong on the river.”`
+      },
+      {
+        id: `fc2`,
+        thai: `กระทง`,
+        phonetic: `kra-thong`,
+        eng: `Krathong — Leaf Basket`,
+        detail: `A small lotus-shaped vessel made from banana trunk and folded banana leaves.`
+      },
+      {
+        id: `fc3`,
+        thai: `พระแม่คงคา`,
+        phonetic: `Phra Mae Khong-kha`,
+        eng: `Water Goddess`,
+        detail: `The sacred spirit of rivers and water, honored with gratitude during Loy Krathong.`
+      },
+      {
+        id: `fc4`,
+        thai: `นางนพมาศ`,
+        phonetic: `Nang Nop-pha-mat`,
+        eng: `Lady Nopphamat`,
+        detail: `The legendary royal lady in the Sukhothai tale said to have folded the first lotus krathong.`
+      },
+      {
+        id: `fc5`,
+        thai: `บุญคุณ`,
+        phonetic: `bun-khun`,
+        eng: `Bunkhun — Gratitude`,
+        detail: `Deep thankfulness for kindness or life-giving gifts, like clean water and rice harvests.`
+      },
+      {
+        id: `fc6`,
+        thai: `ขอขมา`,
+        phonetic: `kho kha-ma`,
+        eng: `Kho Khama — Apology`,
+        detail: `Politely asking forgiveness—such as apologizing to rivers for pollution or waste.`
+      },
+      {
+        id: `fc7`,
+        thai: `ยี่เป็ง`,
+        phonetic: `yi peng`,
+        eng: `Yi Peng Festival`,
+        detail: `The Northern Thai (Chiang Mai) lantern celebration held on the same full moon.`
+      },
+      {
+        id: `fc8`,
+        thai: `ย่อยสลายได้`,
+        phonetic: `yoi sa-lai dai`,
+        eng: `Biodegradable`,
+        detail: `Natural materials (like banana leaves and bamboo pins) that break down safely in nature.`
+      }
+    ];
+
+    const QUIZ_QUESTIONS = [
+      {
+        q: `When is Loy Krathong celebrated each year in Thailand?`,
+        options: [
+          `On the full moon of the 12th Thai lunar month`,
+          `On the hottest day of April (Songkran)`,
+          `On the first day of January`,
+          `During the driest week of March`
+        ],
+        correct: 0,
+        explain: `Loy Krathong falls on Wan Phen Duean Sip-Song (the full moon night of the 12th Thai lunar month), usually in November when rivers are high and calm.`
+      },
+      {
+        q: `What does the Thai word “Loy” (ลอย) mean in English?`,
+        options: [
+          `To burn`,
+          `To float`,
+          `To plant rice`,
+          `To sing`
+        ],
+        correct: 1,
+        explain: `Loy (ลอย) means “to float,” and Krathong (กระทง) refers to the small hand-folded leaf basket.`
+      },
+      {
+        q: `Who is Phra Mae Khongkha (พระแม่คงคา)?`,
+        options: [
+          `The goddess of fire and volcanoes`,
+          `The ancient king of Sukhothai`,
+          `The Water Goddess honored for rivers, rain, and rice harvests`,
+          `A famous Chiang Mai lantern maker`
+        ],
+        correct: 2,
+        explain: `Thai people show Bunkhun (gratitude) to Phra Mae Khongkha—whose name connects to the sacred Ganges (Ganga) river—for water to drink, bathe, and farm.`
+      },
+      {
+        q: `What do historians say about the famous story of Lady Nopphamat?`,
+        options: [
+          `It is recorded on every stone tablet from 500 BCE`,
+          `She invented plastic krathongs in Bangkok`,
+          `Her story is a beloved legend written in the early Bangkok period, while older water-lamp rituals came earlier`,
+          `She was a queen of Myanmar`
+        ],
+        correct: 2,
+        explain: `Water-lamp rituals existed in ancient India and early Sukhothai, while the storybook about Lady Nopphamat was written in the 1800s as a cultural tale.`
+      },
+      {
+        q: `In a traditional krathong, what do the three incense sticks (ธูป ๓ ดอก) represent?`,
+        options: [
+          `Three seasons of Thailand`,
+          `The Triple Gem: Buddha, Dhamma, and Sangha`,
+          `Three major oceans`,
+          `Three wishes for wealth`
+        ],
+        correct: 1,
+        explain: `Three incense sticks honor Phra Rattana Trai (the Triple Gem), while the single candle symbolizes the light of wisdom.`
+      },
+      {
+        q: `Besides thanking the river, what inner feeling does floating a krathong symbolize?`,
+        options: [
+          `Letting go of anger, grudges, and bad luck to start fresh`,
+          `Showing off who bought the biggest plastic basket`,
+          `Throwing away old schoolbooks`,
+          `Competing in a swimming race`
+        ],
+        correct: 0,
+        explain: `As the krathong drifts downstream, people symbolically let go of negative feelings and make bright wishes (Athitthan) for the coming year.`
+      },
+      {
+        q: `Which northern Thai celebration fills the Chiang Mai sky with glowing paper lanterns alongside Loy Krathong?`,
+        options: [
+          `Songkran`,
+          `Yi Peng (ยี่เป็ง)`,
+          `Bon Om Touk`,
+          `Loy Krathong Sai`
+        ],
+        correct: 1,
+        explain: `Yi Peng is the Lanna festival in Chiang Mai famous for sky lanterns (Khom Loy) and house lanterns.`
+      },
+      {
+        q: `Which neighboring country celebrates “Boun Lai Heua Fai” with illuminated fire boats on the Mekong River?`,
+        options: [
+          `Japan`,
+          `India`,
+          `Laos`,
+          `Indonesia`
+        ],
+        correct: 2,
+        explain: `Laos celebrates Boun Lai Heua Fai (“floating fire boats”) on the Mekong River, sharing themes of gratitude and light with Thailand.`
+      },
+      {
+        q: `Why should you NEVER use metal staples or styrofoam when making a krathong?`,
+        options: [
+          `Metal staples float too fast`,
+          `Styrofoam melts in five minutes`,
+          `Styrofoam lasts 500+ years as microplastic and metal staples can injure fish, turtles, and cleanup workers`,
+          `Bamboo pins are heavier than iron`
+        ],
+        correct: 2,
+        explain: `Natural banana trunks and bamboo pins break down safely, whereas styrofoam and metal pins pollute waterways and harm animals.`
+      },
+      {
+        q: `Why can floating too many bread krathongs in a STILL city pond still harm fish?`,
+        options: [
+          `Fish do not like bread at night`,
+          `Uneaten soggy bread rots in still water, using up dissolved oxygen that fish need to breathe`,
+          `Bread turns into styrofoam underwater`,
+          `Bread blocks the moonlight`
+        ],
+        correct: 1,
+        explain: `In small still ponds, excess bread decays rapidly and lowers water oxygen levels. Sharing one natural or ice krathong per family—or floating in designated collection zones—is much kinder to fish!`
+      }
+    ];
+
+    // ---------- APPLICATION STATE ----------
+    let appState = {
+      historyView: `legend`,
+      anatomyPart: `base`,
+      region: `chiangmai`,
+      simMaterial: `banana`,
+      simPin: `bamboo`,
+      simWater: `river`,
+      flippedCards: {},
+      learnedCards: {},
+      quizIndex: 0,
+      quizAnswers: {},
+      quizFinished: false,
+      pledgeText: ``
+    };
+
+    // ---------- STATE PERSISTENCE HELPERS ----------
+    async function saveState() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.setAppState === 'function') {
+          await window.notebookAppApi.setAppState(appState);
+        }
+      } catch (err) {
+        // Ignore gracefully if host shim is absent
+      }
+    }
+
+    function updateHeroStats() {
+      const learnedCount = Object.keys(appState.learnedCards).filter((k) => appState.learnedCards[k]).length;
+      const wordsEl = document.getElementById('hero-words-count');
+      if (wordsEl) wordsEl.textContent = `${learnedCount} / ${FLASHCARDS.length}`;
+
+      let correctCount = 0;
+      QUIZ_QUESTIONS.forEach((q, idx) => {
+        if (appState.quizAnswers[idx] === q.correct) correctCount++;
+      });
+      const scoreEl = document.getElementById('hero-quiz-score');
+      if (scoreEl) scoreEl.textContent = `${correctCount} / ${QUIZ_QUESTIONS.length}`;
+    }
+
+    // ---------- CHAPTER 1: HISTORY TOGGLE ----------
+    function setHistoryView(mode) {
+      appState.historyView = mode;
+      const modes = [`legend`, `fact`, `both`];
+      modes.forEach((m) => {
+        const btn = document.getElementById(`btn-hist-${m}`);
+        if (btn) {
+          const active = m === mode;
+          btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+          btn.classList.toggle('btn-active', active);
+        }
+      });
+      const out = document.getElementById('history-view-output');
+      const data = HISTORY_VIEWS[mode] || HISTORY_VIEWS.legend;
+      if (out) {
+        out.innerHTML = `<span class="badge badge-brass" style="margin-bottom:var(--space-sm);">${data.badge}</span><p class="prose-col" style="margin-top:var(--space-xs);">${data.text}</p>`;
+      }
+      saveState();
+    }
+
+    // ---------- CHAPTER 2: ANATOMY EXPLORER ----------
+    function selectAnatomyPart(partKey) {
+      appState.anatomyPart = partKey;
+      const keys = [`base`, `leaves`, `candle`, `incense`, `flowers`];
+      keys.forEach((k) => {
+        const btn = document.getElementById(`part-btn-${k}`);
+        if (btn) {
+          const active = k === partKey;
+          btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+          btn.classList.toggle('btn-active', active);
+        }
+      });
+      const info = ANATOMY_PARTS[partKey] || ANATOMY_PARTS.base;
+      const counter = document.getElementById('anatomy-step-counter');
+      if (counter) counter.textContent = info.step;
+      const box = document.getElementById('anatomy-detail-box');
+      if (box) {
+        box.innerHTML = `
+          <div class="coord-label">${info.thai}</div>
+          <h4 style="margin:var(--space-xs) 0 var(--space-sm); font-size:var(--subhead-size); color:var(--primary); font-weight:400;">${info.title}</h4>
+          <p class="prose-col">${info.meaning}</p>
+          <p class="prose-muted" style="margin-top:var(--space-sm); color:var(--banana-green);"><strong>${info.tip}</strong></p>
+        `;
+      }
+      saveState();
+    }
+
+    // ---------- CHAPTER 3: THAILAND REGIONS ----------
+    function selectRegion(regionKey) {
+      appState.region = regionKey;
+      const keys = [`chiangmai`, `sukhothai`, `bangkok`, `tak`];
+      keys.forEach((k) => {
+        const btn = document.getElementById(`reg-btn-${k}`);
+        if (btn) {
+          const active = k === regionKey;
+          btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+          btn.classList.toggle('btn-active', active);
+        }
+      });
+      const reg = REGIONS[regionKey] || REGIONS.chiangmai;
+      const box = document.getElementById('region-detail-box');
+      if (box) {
+        box.innerHTML = `
+          <span class="badge" style="margin-bottom:var(--space-sm);">${reg.highlight}</span>
+          <h4 style="margin:var(--space-xs) 0 var(--space-sm); font-size:var(--subhead-size); color:var(--primary); font-weight:400;">${reg.title}</h4>
+          <p class="prose-col">${reg.desc}</p>
+        `;
+      }
+      saveState();
+    }
+
+    // ---------- CHAPTER 4: SIMULATOR ----------
+    function setSimMaterial(mat) {
+      appState.simMaterial = mat;
+      [`banana`, `bread`, `ice`, `foam`].forEach((m) => {
+        const btn = document.getElementById(`mat-${m}`);
+        if (btn) {
+          const active = m === mat;
+          btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+          btn.classList.toggle('btn-active', active);
+        }
+      });
+      updateSimVisualsOnly();
+      saveState();
+    }
+
+    function setSimPin(pin) {
+      appState.simPin = pin;
+      [`bamboo`, `staple`].forEach((p) => {
+        const btn = document.getElementById(`pin-${p}`);
+        if (btn) {
+          const active = p === pin;
+          btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+          btn.classList.toggle('btn-active', active);
+        }
+      });
+      saveState();
+    }
+
+    function setSimWater(water) {
+      appState.simWater = water;
+      [`river`, `pond`].forEach((w) => {
+        const btn = document.getElementById(`water-${w}`);
+        if (btn) {
+          const active = w === water;
+          btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+          btn.classList.toggle('btn-active', active);
+        }
+      });
+      saveState();
+    }
+
+    function updateSimVisualsOnly() {
+      const m = SIM_MATERIALS[appState.simMaterial] || SIM_MATERIALS.banana;
+      const baseEl = document.getElementById('sim-base-ellipse');
+      const crownEl = document.getElementById('sim-leaf-crown');
+      const groupEl = document.getElementById('sim-krathong-svg');
+      if (baseEl) {
+        baseEl.setAttribute('fill', m.ellipseFill);
+        baseEl.setAttribute('stroke', m.ellipseStroke);
+      }
+      if (crownEl) {
+        crownEl.setAttribute('fill', m.crownFill);
+      }
+      if (groupEl) {
+        groupEl.setAttribute('class', 'float-bob');
+      }
+    }
+
+    function launchSimulator() {
+      const mat = appState.simMaterial;
+      const pin = appState.simPin;
+      const water = appState.simWater;
+      const mInfo = SIM_MATERIALS[mat] || SIM_MATERIALS.banana;
+
+      const groupEl = document.getElementById('sim-krathong-svg');
+      if (groupEl) {
+        groupEl.setAttribute('class', mInfo.animClass);
+      }
+
+      const floatEl = document.getElementById('sim-float-val');
+      const decompEl = document.getElementById('sim-decomp-val');
+      const safetyEl = document.getElementById('sim-safety-val');
+      const badgeEl = document.getElementById('sim-eco-badge');
+      const tagEl = document.getElementById('sim-status-tag');
+      const verdictEl = document.getElementById('sim-verdict-text');
+
+      if (floatEl) floatEl.textContent = mInfo.float;
+      if (decompEl) decompEl.textContent = mInfo.decomp;
+
+      let safetyLabel = `High (Eco-Safe)`;
+      let ecoScore = `95 / 100 · River Hero`;
+      let badgeClass = `badge badge-green`;
+      let verdict = ``;
+
+      if (mat === `foam`) {
+        safetyLabel = `Harmful`;
+        ecoScore = `10 / 100 · Pollutes Water`;
+        badgeClass = `badge badge-amber`;
+        verdict = `<strong>Warning!</strong> Styrofoam does not rot—it breaks into tiny microplastics that stay in rivers for over 500 years and can choke fish and river birds.`;
+      } else if (pin === `staple`) {
+        safetyLabel = `Hazard for Fish`;
+        ecoScore = `40 / 100 · Remove Metal Pins`;
+        badgeClass = `badge badge-amber`;
+        verdict = `Even with a ${mInfo.label.toLowerCase()} base, <strong>metal staples or nails</strong> sink to the riverbed or hurt turtles, fish, and volunteers collecting krathongs the next morning. Switch to natural bamboo pins!`;
+      } else if (mat === `bread` && water === `pond`) {
+        safetyLabel = `Caution in Ponds`;
+        ecoScore = `65 / 100 · Low Oxygen Risk`;
+        badgeClass = `badge badge-amber`;
+        verdict = `<strong>Important Science Fact:</strong> In a still city pond, fish cannot eat thousands of bread krathongs at once! Extra wet bread sinks and decays, stealing dissolved oxygen from the water. Try an ice block or share one banana-trunk krathong per family.`;
+      } else if (mat === `ice`) {
+        safetyLabel = `Zero Solid Waste`;
+        ecoScore = `100 / 100 · Ultra Clean`;
+        badgeClass = `badge badge-green`;
+        verdict = `<strong>Brilliant Choice!</strong> Your ice-block krathong with natural bamboo pins melts cleanly back into pure water, leaving zero trash for rivers or ponds!`;
+      } else if (mat === `bread` && water === `river`) {
+        safetyLabel = `Moderate`;
+        ecoScore = `78 / 100 · Use Sparingly`;
+        badgeClass = `badge badge-brass`;
+        verdict = `In a flowing river, small amounts of bread disperse faster than in a pond—and using bamboo pins keeps it free of metal hazards. Still, sharing one krathong keeps water cleanest!`;
+      } else {
+        safetyLabel = `High (Compostable)`;
+        ecoScore = `95 / 100 · Classic & Green`;
+        badgeClass = `badge badge-green`;
+        verdict = `<strong>Wonderful Tradition!</strong> A ${mInfo.label.toLowerCase()} krathong pinned with natural bamboo decomposes safely and can be collected after the festival to make rich garden compost.`;
+      }
+
+      if (safetyEl) {
+        safetyEl.textContent = safetyLabel;
+        safetyEl.style.color = (mat === `foam` || pin === `staple`) ? `var(--error)` : `var(--banana-green)`;
+      }
+      if (badgeEl) {
+        badgeEl.className = badgeClass;
+        badgeEl.textContent = `Eco Score: ${ecoScore}`;
+      }
+      if (tagEl) tagEl.textContent = `Test Complete · ${mInfo.label} + ${pin === 'bamboo' ? 'Bamboo Pins' : 'Metal Staples'}`;
+      if (verdictEl) verdictEl.innerHTML = verdict;
+    }
+
+    function resetSimulator() {
+      setSimMaterial('banana');
+      setSimPin('bamboo');
+      setSimWater('river');
+      const floatEl = document.getElementById('sim-float-val');
+      const decompEl = document.getElementById('sim-decomp-val');
+      const safetyEl = document.getElementById('sim-safety-val');
+      const badgeEl = document.getElementById('sim-eco-badge');
+      const tagEl = document.getElementById('sim-status-tag');
+      const verdictEl = document.getElementById('sim-verdict-text');
+      if (floatEl) floatEl.textContent = `--`;
+      if (decompEl) decompEl.textContent = `--`;
+      if (safetyEl) {
+        safetyEl.textContent = `--`;
+        safetyEl.style.color = `var(--banana-green)`;
+      }
+      if (badgeEl) {
+        badgeEl.className = `badge badge-green`;
+        badgeEl.textContent = `Eco Score: --`;
+      }
+      if (tagEl) tagEl.textContent = `Ready to Test`;
+      if (verdictEl) verdictEl.innerHTML = `Choose a base material, fastener, and waterway, then click <strong>Launch &amp; Test Krathong</strong> to see the science verdict.`;
+    }
+
+    // ---------- CHAPTER 5: BILINGUAL FLASHCARDS ----------
+    function renderFlashcards() {
+      const grid = document.getElementById('flashcard-grid');
+      if (!grid) return;
+      grid.innerHTML = FLASHCARDS.map((card) => {
+        const isFlipped = !!appState.flippedCards[card.id];
+        const isLearned = !!appState.learnedCards[card.id];
+        const cardClasses = `flashcard${isFlipped ? ' flipped' : ''}${isLearned ? ' learned' : ''}`;
+        return `
+          <div class="${cardClasses}" role="button" tabindex="0" aria-pressed="${isFlipped ? 'true' : 'false'}" onclick="toggleFlashcard('${card.id}')" onkeydown="handleCardKey(event, '${card.id}')">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; gap:var(--space-xs); margin-bottom:var(--space-sm);">
+                <span class="coord-label">${isFlipped ? 'English Meaning' : 'Thai Term · Tap to Flip'}</span>
+                ${isLearned ? '<span class="badge badge-green">Mastered</span>' : ''}
+              </div>
+              ${isFlipped
+                ? `<div class="fc-eng">${card.eng}</div>
+                   <p class="prose-muted" style="margin:var(--space-xs) 0 0; font-size:0.95rem;">${card.detail}</p>`
+                : `<div class="fc-thai">${card.thai}</div>
+                   <div class="vocab-phonetic" style="margin-top:var(--space-xs);">${card.phonetic}</div>`
+              }
+            </div>
+            <div class="fc-footer">
+              <span style="font-size:var(--label-size); color:var(--on-surface-variant);">${isFlipped ? 'Click to see Thai' : 'Click to reveal meaning'}</span>
+              <button type="button" class="btn" style="min-height:36px; padding:var(--space-xs) var(--space-sm); font-size:var(--label-size);" onclick="toggleLearned(event, '${card.id}')">
+                ${isLearned ? 'Unmark' : 'Mark Mastered'}
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      const learnedCount = Object.keys(appState.learnedCards).filter((k) => appState.learnedCards[k]).length;
+      const badge = document.getElementById('fc-mastery-badge');
+      if (badge) badge.textContent = `${learnedCount} of ${FLASHCARDS.length} Mastered`;
+      updateHeroStats();
+    }
+
+    function toggleFlashcard(id) {
+      appState.flippedCards[id] = !appState.flippedCards[id];
+      renderFlashcards();
+      saveState();
+    }
+
+    function handleCardKey(e, id) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleFlashcard(id);
+      }
+    }
+
+    function toggleLearned(e, id) {
+      e.stopPropagation();
+      appState.learnedCards[id] = !appState.learnedCards[id];
+      renderFlashcards();
+      saveState();
+    }
+
+    function resetFlashcards() {
+      appState.learnedCards = {};
+      appState.flippedCards = {};
+      renderFlashcards();
+      saveState();
+    }
+
+    // ---------- CHAPTER 6: 10-QUESTION QUIZ ----------
+    function renderQuiz() {
+      const stage = document.getElementById('quiz-stage');
+      const counter = document.getElementById('quiz-q-counter');
+      const scoreBadge = document.getElementById('quiz-score-badge');
+      const fill = document.getElementById('quiz-progress-fill');
+      if (!stage) return;
+
+      let totalCorrect = 0;
+      QUIZ_QUESTIONS.forEach((q, idx) => {
+        if (appState.quizAnswers[idx] === q.correct) totalCorrect++;
+      });
+      if (scoreBadge) scoreBadge.textContent = `Score: ${totalCorrect} / ${QUIZ_QUESTIONS.length}`;
+      updateHeroStats();
+
+      if (appState.quizFinished) {
+        if (counter) counter.textContent = `Quiz Completed!`;
+        if (fill) fill.style.width = `100%`;
+
+        let rankTitle = `Curious River Explorer`;
+        let rankNote = `Great start! Try reviewing the flashcards and anatomy diagram, then take the quiz again to boost your score.`;
+        if (totalCorrect >= 9) {
+          rankTitle = `Grand Water Guardian (ผู้พิทักษ์สายน้ำ)`;
+          rankNote = `Outstanding! You understand the ancient roots, Thai symbolism, regional traditions, and river science of Loy Krathong!`;
+        } else if (totalCorrect >= 6) {
+          rankTitle = `Lantern Scholar (นักปราชญ์แห่งแสงเทียน)`;
+          rankNote = `Well done! You know the key history, vocabulary, and eco-friendly practices of Loy Krathong.`;
+        }
+
+        stage.innerHTML = `
+          <div class="certificate-box">
+            <span class="badge badge-brass">Junior Explorer Certificate</span>
+            <h3 style="margin:0; font-size:var(--headline-size); color:var(--primary); font-weight:400;">${rankTitle}</h3>
+            <div style="font-size:2.4rem; font-weight:700; color:var(--on-surface); font-variant-numeric:tabular-nums;">${totalCorrect} / ${QUIZ_QUESTIONS.length}</div>
+            <p class="prose-col" style="margin:0 auto;">${rankNote}</p>
+            <div class="btn-row" style="justify-content:center; margin-top:var(--space-sm);">
+              <button type="button" class="btn btn-primary" onclick="retakeQuiz()">Retake Quiz</button>
+              <button type="button" class="btn" onclick="reviewQuizQuestion(0)">Review Answers</button>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      const idx = appState.quizIndex;
+      const q = QUIZ_QUESTIONS[idx];
+      const chosen = appState.quizAnswers[idx];
+      const hasAnswered = chosen !== undefined && chosen !== null;
+
+      if (counter) counter.textContent = `Question ${idx + 1} of ${QUIZ_QUESTIONS.length}`;
+      if (fill) fill.style.width = `${((idx + 1) / QUIZ_QUESTIONS.length) * 100}%`;
+
+      const letters = [`A`, `B`, `C`, `D`];
+      const optionsHtml = q.options.map((opt, oIdx) => {
+        let cls = `quiz-option`;
+        if (hasAnswered) {
+          if (oIdx === q.correct) cls += ` correct`;
+          else if (oIdx === chosen) cls += ` incorrect`;
+        }
+        return `
+          <button type="button" class="${cls}" ${hasAnswered ? 'disabled' : ''} onclick="answerQuiz(${idx}, ${oIdx})">
+            <strong style="color:var(--primary);">${letters[oIdx]}.</strong>
+            <span>${opt}</span>
+          </button>
+        `;
+      }).join('');
+
+      const feedbackHtml = hasAnswered
+        ? `<div class="quiz-feedback" aria-live="polite">
+             <strong style="color:${chosen === q.correct ? 'var(--banana-green)' : 'var(--error)'};">
+               ${chosen === q.correct ? 'Correct! Well reasoned.' : 'Not quite—here is the key idea:'}
+             </strong>
+             <p class="prose-col" style="margin:var(--space-xs) 0 0;">${q.explain}</p>
+           </div>`
+        : ``;
+
+      stage.innerHTML = `
+        <h3 style="margin:0; font-size:var(--subhead-size); color:var(--on-surface); font-weight:400;">${idx + 1}. ${q.q}</h3>
+        <div class="quiz-options">${optionsHtml}</div>
+        ${feedbackHtml}
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:var(--space-sm); padding-top:var(--space-sm); border-top:var(--hairline);">
+          <button type="button" class="btn" ${idx === 0 ? 'disabled' : ''} onclick="moveQuiz(-1)">Previous</button>
+          <div class="btn-row">
+            ${idx < QUIZ_QUESTIONS.length - 1
+              ? `<button type="button" class="btn btn-primary" onclick="moveQuiz(1)">Next Question</button>`
+              : `<button type="button" class="btn btn-primary" onclick="finishQuiz()">See Certificate Score</button>`
+            }
+          </div>
+        </div>
+      `;
+    }
+
+    function answerQuiz(qIdx, optIdx) {
+      appState.quizAnswers[qIdx] = optIdx;
+      renderQuiz();
+      saveState();
+    }
+
+    function moveQuiz(delta) {
+      const next = appState.quizIndex + delta;
+      if (next >= 0 && next < QUIZ_QUESTIONS.length) {
+        appState.quizIndex = next;
+        renderQuiz();
+        saveState();
+      }
+    }
+
+    function finishQuiz() {
+      appState.quizFinished = true;
+      renderQuiz();
+      saveState();
+    }
+
+    function reviewQuizQuestion(idx) {
+      appState.quizFinished = false;
+      appState.quizIndex = idx;
+      renderQuiz();
+      saveState();
+    }
+
+    function retakeQuiz() {
+      appState.quizAnswers = {};
+      appState.quizIndex = 0;
+      appState.quizFinished = false;
+      renderQuiz();
+      saveState();
+    }
+
+    // ---------- CHAPTER 7: PLEDGE REFLECTION ----------
+    function saveStudentPledge() {
+      const input = document.getElementById('student-pledge-input');
+      const status = document.getElementById('pledge-save-status');
+      if (!input) return;
+      appState.pledgeText = input.value;
+      if (status) {
+        status.textContent = input.value.trim().length > 0
+          ? `Saved! Thank you for making a promise to protect Thailand’s waterways.`
+          : `Cleared. Write a short promise above whenever you are ready.`;
+        status.style.color = `var(--banana-green)`;
+      }
+      saveState();
+    }
+
+    // ---------- INITIALIZATION ----------
+    async function initApp() {
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.getAppState === 'function') {
+          const saved = await window.notebookAppApi.getAppState();
+          if (saved && typeof saved === 'object') {
+            appState = Object.assign(appState, saved);
+          }
+        }
+      } catch (err) {
+        // Use defaults cleanly
+      }
+
+      setHistoryView(appState.historyView || 'legend');
+      selectAnatomyPart(appState.anatomyPart || 'base');
+      selectRegion(appState.region || 'chiangmai');
+      setSimMaterial(appState.simMaterial || 'banana');
+      setSimPin(appState.simPin || 'bamboo');
+      setSimWater(appState.simWater || 'river');
+      renderFlashcards();
+      renderQuiz();
+
+      const pledgeInput = document.getElementById('student-pledge-input');
+      if (pledgeInput) {
+        pledgeInput.value = appState.pledgeText || '';
+        pledgeInput.addEventListener('input', () => {
+          appState.pledgeText = pledgeInput.value;
+          saveState();
+        });
+      }
+
+      try {
+        if (window.notebookAppApi && typeof window.notebookAppApi.notifyAppReady === 'function') {
+          window.notebookAppApi.notifyAppReady();
+        }
+      } catch (err) {
+        // Ignore if outside host
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', initApp);
+  </script>
+</body>
+</html>
